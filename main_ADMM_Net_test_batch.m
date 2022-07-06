@@ -7,26 +7,38 @@
  addpath('./util')
  
 %% Load trained network
-% load('./net/network_20/net-stage15.mat')
-load('./Train_output/net/net-097.mat')
-
+% load CC G1D10
+load('./Train_output/net/net-001.mat')
+% load('./Train_output_G1D10_CC/net/net-001.mat')
+% % load CC G1D30
+% load('./Train_output_G1D30_CC/net/net-097.mat')
+% % load CC G1D30 (Old)
+% load('./Train_output_G1D30_CC_OLD/net/net-097.mat')
+% % load CC G1D30
+% load('./Train_output_G2D30_CC_OLD/net/net-100.mat')
 %% Load mask
-% load('./mask/mask_20.mat')
+% load G1D10 mask
+load('./mask/GaussianDistribution1DMask_10.mat')
+mask = double(maskRS1);
+% % load G1D30 mask
+% load('./mask/GaussianDistribution1DMask_30.mat')
+% mask = double(maskRS1);
+% % load G2D30 mask
 % load('./mask/GaussianDistribution2DMask_30.mat')
 % mask = double(maskRS2);
-load('./mask/GaussianDistribution1DMask_30.mat')
-mask = double(maskRS1);
 
 %% Load data 
 files = dir('./data/Brain_data/db_valid_mat/*.mat');
 
 %% Save dir
-savedir = './data/result_G1D30_CC/';
+savedir = './data/result_G1D10_CC/';
+% savedir = './data/result_G1D30_CC/';
+% savedir = './data/result_G2D30_CC/';
 
-%% 
-MSE = [];
-PSNR = [];
-SSIM = [];
+%% Init
+% MSE = [];
+% PSNR = [];
+% SSIM = [];
 
 %% Loop
 for i=1:2000
@@ -60,7 +72,7 @@ imwrite(abs(rec_image),[savedir, 'Recon/ADMM_Recon_',int2str(i),'.png'])
 imwrite(abs(zero_filling_rec),[savedir,'ZF/ADMM_ZF_',int2str(i),'.png'])
 
 end
-imwrite(abs(mask),'mask.png')
+imwrite(abs(mask),[savedir, 'mask.png'])
 
 
 

@@ -19,3 +19,10 @@
 2. Use `main_netTrain.m` to train the network
 
 ## Test
+
+
+
+## Analysis
+
+
+Deep ADMM Net is very sensitive to the undersampling mask. Train and test must use the same mask.

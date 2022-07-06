@@ -3,7 +3,7 @@ config;
 ND = nnconfig.DataNmber;
 %% Load samping pattern 
 
-load('./mask/GaussianDistribution1DMask_30.mat')
+load('./mask/GaussianDistribution1DMask_10.mat')
 mask = double(maskRS1);
 % load('./mask/radial_10.mat')
 % mask = double(mask);
