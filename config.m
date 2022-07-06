@@ -13,12 +13,13 @@ nnconfig.WeightDecay = 0;
 
 
 %% data
-nnconfig.TrainNumber = 1;
+nnconfig.TrainNumber = 100;
 nnconfig.ValDataNumber = 50;
 nnconfig.TesDataNumber = 1;
 nnconfig.ImageSize = [256,256];
 nnconfig.DataNmber = 100;
- 
+
+nnconfig.DataPath = '.\data\Brain_data_sampling\';
 
 
 

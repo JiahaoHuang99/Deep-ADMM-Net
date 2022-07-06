@@ -9,6 +9,7 @@
 %% Load trained network
 load('./net/network_20/net-stage15.mat')
 %% Load data 
+
 load('./data/Brain_data/Brain_data1.mat')
 %load('.data/Chest_data/chest_data1.mat')
 load('./mask/mask_20.mat')
@@ -22,8 +23,10 @@ data.label = im_ori;
 %tic
 [re_LOss, rec_image] = loss_with_gradient_single_before(data, net);
 %Time_Net_rec = toc
-re_PSnr = psnr(abs(rec_image) , abs(data.label))
-re_LOss
+re_MSE = mse(abs(rec_image) , abs(data.label))
+re_PSNR = psnr(abs(rec_image) , abs(data.label))
+re_SSIM = ssim(abs(rec_image) , abs(data.label))
+re_LOss %#ok<NOPTS>
 Zero_filling_rec = ifft2(y);
 figure;
 subplot(1,2,1); imshow(abs(Zero_filling_rec)); xlabel('Zero-filling reconstructon result');
