@@ -3,8 +3,13 @@ config;
 ND = nnconfig.DataNmber;
 %% Load samping pattern 
 
-load('./mask/GaussianDistribution1DMask_10.mat')
-mask = double(maskRS1);
+% load('./mask/GaussianDistribution1DMask_10.mat')
+% mask = double(maskRS1);
+% load('./mask/GaussianDistribution1DMask_30.mat')
+% mask = double(maskRS1);
+load('./mask/GaussianDistribution2DMask_30.mat')
+mask = double(maskRS2);
+
 % load('./mask/radial_10.mat')
 % mask = double(mask);
 save(strcat('./mask' , '.mat'), 'mask');
@@ -19,7 +24,7 @@ save(strcat('./mask' , '.mat'), 'mask');
 % save(strcat('./data/ChestTrain_sampling/', saveName(i, 2), '.mat'), 'data');
 % end
 
-%% for CC braindata
+% for CC braindata
 for i = 1:1:47
     for j = 1:1:100
     
